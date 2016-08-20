@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="MyApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <ImageBrush ImageSource="Assets/skin/PageBG.jpg"/>
+    </Page.Background>
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="cb_btm">
+            <!--<CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="openPushBtn" Label="OpenMessagePush"/>
+                <AppBarButton x:Name="closePushBtn" Label="CloseMessagePush"/>
+            </CommandBar.SecondaryCommands>-->
+            <AppBarButton Label="SignUp" Icon="Add" Click="abb_signup_onClicked"/>
+            <AppBarButton Label="SignIn" Icon="Accept" Click="abb_signin_onClicked"/>
+            <!--<AppBarButton HorizontalAlignment="Stretch" Label="Dislike" VerticalAlignment="Stretch" d:LayoutOverrides="Height">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Resources/FontAwesome.otf#FontAwesome" Glyph="&#xf088;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>-->
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+        <StackPanel x:Name="sp" Orientation="Vertical">
+            <!--<Image Source="Assets/icons/Heart150x150.png" Width="150" Height="150" Margin=" 0, 20, 0, 0"/>-->
+            <TextBlock Text="Now Start" FontSize="36" HorizontalAlignment="Center" Margin="0, 40, 0, 0"/>
+
+            <StackPanel x:Name="contentPanel" HorizontalAlignment="Center" Margin="0,60,0,0">
+                <StackPanel x:Name="inputPanel" Orientation="Vertical">
+                    <TextBox x:Name="usernameInput" Header="Username:" PlaceholderText="Username" HorizontalAlignment="Stretch" Margin="0, 0, 0, 10"/>
+                    <PasswordBox x:Name="passwordInput" Header="Password:" PlaceholderText="Password:" HorizontalAlignment="Stretch" Margin="0, 10, 0, 0"/>
+                </StackPanel >
+                <StackPanel  x:Name="radioPanel" Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
+                    <RadioButton x:Name="rb_elder" GroupName="clientMode" IsChecked="True" Content="Elder"/>
+                    <RadioButton x:Name="rb_children" GroupName="clientMode" Content="Children"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <Popup 
+            x:Name="PopupLoading"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Width="200"
+            Height="80">
+            <StackPanel 
+                Background="DimGray"
+                Opacity="0.8"
+                Width="200"
+                Height="80"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                <ProgressBar 
+                    IsIndeterminate="True"
+                    Width="150"
+                    Height="10"
+                    VerticalAlignment="Center"
+                    Margin="0 20 0 0"/>
+                <TextBlock 
+                    Foreground="White"
+                    Text="Please wait......"
+                    FontSize="15"
+                    HorizontalAlignment="Center"
+                    Margin="0 10 0 0"/>
+            </StackPanel>
+        </Popup>
+    </Grid>
+</Page>

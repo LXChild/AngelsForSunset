@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="15821.497214A48FBFD" Publisher="CN=F9125A4F-0B4B-4543-A2F6-8BDD59E43868" Version="1.2.0.0" />
+  <mp:PhoneIdentity PhoneProductId="ce766a49-755b-4203-b680-3215b4093447" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Angels for Sunset</DisplayName>
+    <PublisherDisplayName>王冲</PublisherDisplayName>
+    <Logo>Assets\icons\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="MyApp.App">
+      <uap:VisualElements DisplayName="Angels for Sunset" Square150x150Logo="Assets\icons\Heart150x150.png" Square44x44Logo="Assets\icons\Heart44x44.png" Description="MyApp" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\icons\Heart310x150.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\icons\Heart24x24.png" />
+        <uap:SplashScreen Image="Assets\icons\Heart620x300.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="AgHost.BackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+    <uap:Capability Name="removableStorage" />
+    <DeviceCapability Name="location" />
+    <DeviceCapability Name="bluetooth" />
+    <DeviceCapability Name="proximity" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="bluetooth.genericAttributeProfile" />
+  </Capabilities>
+</Package>

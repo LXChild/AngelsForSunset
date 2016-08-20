@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="MyApp.RemindPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <BitmapImage x:Key="hdFrom" UriSource="Assets/remind/01.jpg" DecodePixelHeight="50"/>
+        <BitmapImage x:Key="hdTo" UriSource="Assets/remind/02.jpg" DecodePixelHeight="50"/>
+
+        <DataTemplate x:Key="from">
+            <Grid HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="40" Height="40" VerticalAlignment="Top" Source="{StaticResource hdFrom}"/>
+                <Border Grid.Column="1" Margin="8,0" Padding="10" Background="LightBlue">
+                    <TextBlock Text="{Binding Content}" Foreground="White" TextWrapping="Wrap"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="to">
+            <Grid HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="1" Width="40" Height="40" Source="{StaticResource hdTo}" VerticalAlignment="Top"/>
+                <Border Grid.Column="0" Background="LightBlue" Padding="10" Margin="8,0">
+                    <TextBlock Text="{Binding Content}"  Foreground="White" TextWrapping="Wrap"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="DimGray" Padding="0, 8, 0, 8" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="btn_back" Margin="4" Style="{StaticResource  NavigationBackButtonNormalStyle}" VerticalAlignment="Center" Click="btn_back_onClicked"/>
+            <TextBlock Text="Remind" FontFamily="Segoe UI" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"/>
+        </StackPanel>
+        <ListView Grid.Row ="1" x:Name="lvMsgs" Margin="3, 6">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="0,6"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplateSelector>
+                <local:RemindDataTemplateSelector MessageFromTemplate="{StaticResource from}" MessageToTemplate="{StaticResource to}"/>
+            </ListView.ItemTemplateSelector>
+        </ListView>
+        <Grid Grid.Row="2" Padding="6" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"  x:Name="input_message" PlaceholderText="input something..." TextWrapping="Wrap" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" x:Name="btn_send" Content="Send"  Margin="3, 0, 0, 0" VerticalAlignment="Center" Click="btn_send_onClicked"/>
+        </Grid>
+    </Grid>
+</Page>

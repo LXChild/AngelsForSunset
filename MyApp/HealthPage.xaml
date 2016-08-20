@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="MyApp.HealthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <CollectionViewSource x:Name="itemcollectSource" IsSourceGrouped="true" ItemsPath="ItemContent" />
+        </Grid.Resources>
+        <StackPanel Grid.Row="0" Background="DimGray" Padding="0, 10, 0, 10" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="btn_back" Margin="6" Style="{StaticResource  NavigationBackButtonNormalStyle}" VerticalAlignment="Center" Click="btn_back_onClicked"/>
+            <TextBlock Text="Health" FontFamily="Segoe UI" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"/>
+        </StackPanel>
+        <SemanticZoom x:Name="semanticZoom" Grid.Row="1">
+            <SemanticZoom.ZoomedInView>
+                <!-- 在这里放置GridView(或ListView)以表示放大视图 -->
+                <ListView x:Name="inView">
+                    <ListView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Key}"></TextBlock>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Content}" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <!-- 在这里放置GridView(或ListView)以表示缩小视图 -->
+                <ListView x:Name="outView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Group.Key}" Foreground="White"></TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="BorderBrush" Value="Gray" />
+                            <Setter Property="Background" Value="DimGray" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+    </Grid>
+</Page>

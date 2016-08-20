@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E38A2770-C102-4D09-8814-4BACA54D27CB}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyApp</RootNamespace>
+    <AssemblyName>MyApp</AssemblyName>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MyApp_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>F20E53AF61DB19330A04250018BD6B4DCF523297</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\icons\Heart150x150.scale-200.png" />
+    <Content Include="Assets\icons\Heart24x24.scale-100.png" />
+    <Content Include="Assets\icons\Heart24x24.scale-200.png" />
+    <Content Include="Assets\icons\Heart310x150.scale-100.png" />
+    <Content Include="Assets\icons\Heart310x150.scale-200.png" />
+    <Content Include="Assets\icons\Heart44x44.scale-200.png" />
+    <Content Include="Assets\icons\Heart620x300.scale-100.png" />
+    <Content Include="Assets\icons\Heart620x300.scale-125.png" />
+    <Content Include="Assets\icons\Heart620x300.scale-150.png" />
+    <Content Include="Assets\icons\Heart620x300.scale-200.png" />
+    <Content Include="Assets\icons\StoreLogo.scale-100.png" />
+    <Content Include="Assets\icons\StoreLogo.scale-150.png" />
+    <Content Include="Assets\icons\StoreLogo.scale-200.png" />
+    <Content Include="Assets\position\elder.png" />
+    <Content Include="StoreLogo.png" />
+    <None Include="MyApp_StoreKey.pfx" />
+    <None Include="project.json" />
+    <Content Include="Assets\elder\icons\bluetooth.png" />
+    <Content Include="Assets\icons\Heart150x150.scale-100.png" />
+    <Content Include="Assets\icons\Heart44x44.scale-100.png" />
+    <Content Include="Assets\position\homePic.png" />
+    <Content Include="Assets\remind\01.jpg" />
+    <Content Include="Assets\remind\02.jpg" />
+    <Content Include="Assets\elder\icons\bind.png" />
+    <Content Include="Assets\elder\icons\exit.png" />
+    <Content Include="Assets\elder\icons\goHome.png" />
+    <Content Include="Assets\elder\icons\health.png" />
+    <Content Include="Assets\elder\icons\remind.png" />
+    <Content Include="Assets\elder\icons\SOS.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\settings\about.png" />
+    <Content Include="Assets\settings\event.png" />
+    <Content Include="Assets\position\location.png" />
+    <Content Include="Assets\settings\head.jpg" />
+    <Content Include="Assets\settings\HeadBG.png" />
+    <Content Include="Assets\settings\remind.png" />
+    <Content Include="Assets\settings\settings.png" />
+    <Content Include="Assets\settings\bind.png" />
+    <Content Include="Assets\event\warning.png" />
+    <Content Include="Assets\skin\PageBG.jpg" />
+    <Content Include="Resources\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutAppPage.xaml.cs">
+      <DependentUpon>AboutAppPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AboutListItem.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BindDevicePage.xaml.cs">
+      <DependentUpon>BindDevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="ConnectServer.cs" />
+    <Compile Include="Daily.cs" />
+    <Compile Include="DailyDataHelper.cs" />
+    <Compile Include="ElderPage.xaml.cs">
+      <DependentUpon>ElderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs" />
+    <Compile Include="EventDataHelper.cs" />
+    <Compile Include="DailyDetail.cs" />
+    <Compile Include="EventListViewItem.cs" />
+    <Compile Include="EventsPage.xaml.cs">
+      <DependentUpon>EventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HealthListItem.cs" />
+    <Compile Include="HealthListItemsInGroup.cs" />
+    <Compile Include="HealthPage.xaml.cs">
+      <DependentUpon>HealthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Heartbeat.cs" />
+    <Compile Include="GoHomePage.xaml.cs">
+      <DependentUpon>GoHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IndoorPosition.cs" />
+    <Compile Include="LocalSettingsHelper.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapHelper.cs" />
+    <Compile Include="Remind.cs" />
+    <Compile Include="RemindEntity.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="PieChartDataHelper.cs" />
+    <Compile Include="PieChartDataItem.cs" />
+    <Compile Include="PivotPage.xaml.cs">
+      <DependentUpon>PivotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemindDataTemplateSelector.cs" />
+    <Compile Include="RemindPage.xaml.cs">
+      <DependentUpon>RemindPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecondPage.xaml.cs">
+      <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SerialChartDataItem.cs" />
+    <Compile Include="SettingsListViewItem.cs" />
+    <Compile Include="StorageFileHelper.cs" />
+    <Compile Include="TabHeader.xaml.cs">
+      <DependentUpon>TabHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SerialChartDataHelper.cs" />
+    <Compile Include="Temperature.cs" />
+    <Compile Include="BindRelationPage.xaml.cs">
+      <DependentUpon>BindRelationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UploadFunctions.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="MyApp_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AboutAppPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BindDevicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ElderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GoHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HealthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PivotPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemindPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BindRelationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickCharts\QuickCharts.csproj">
+      <Project>{b919568a-58fe-413e-b1c4-358bf550414c}</Project>
+      <Name>QuickCharts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

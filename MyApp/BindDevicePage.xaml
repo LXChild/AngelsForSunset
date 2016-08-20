@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="MyApp.BindDevicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="Bluetooth" Click="ABB_Bluetooth_OnClicked">
+                <FontIcon FontFamily="{StaticResource FontAwesomeFontFamily}" Glyph="&#xf294;"/>
+            </AppBarButton>
+            <AppBarButton Icon="Refresh" Label="Refresh" Click="ABB_Refresh_OnClicked"/>
+            <AppBarButton Icon="Accept" Label="Connect" Click="ABB_Accept_OnClicked"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="DimGray" Padding="0, 8, 0, 8" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="btn_back" Margin="4" Style="{StaticResource  NavigationBackButtonNormalStyle}" VerticalAlignment="Center" Click="btn_back_onClicked"/>
+            <TextBlock Text="BindDevice" FontFamily="Segoe UI" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"/>
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="deviceList" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="48" Height="48" Source="Assets/elder/icons/bluetooth.png" Stretch="Uniform"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10, 0, 0, 0">
+                                <TextBlock Text="{Binding Name}" FontSize="18"/>
+                                <TextBlock Text="{Binding Id}" Foreground="Gray"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Padding="0, 6, 0, 6" HorizontalAlignment="Center">
+                        <ProgressRing IsActive="True" Margin="8" VerticalAlignment="Center"/>
+                        <TextBlock Text="Loading, Please wait..." Margin="12, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.FooterTemplate>
+        </ListView>
+    </Grid>
+</Page>
